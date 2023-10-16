@@ -4,21 +4,27 @@ import 'package:gojek/theme.dart';
 import '../data/icons.dart';
 
 class Navbar extends StatelessWidget {
-  const Navbar({Key? key}) : super(key: key); // Added super(key: key);
+  const Navbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
 
     return Container(
       height: 70,
+      padding: EdgeInsets.only(top: 10),
       width: screenWidth,
-      color: Colors.white, // Use Colors.white instead of undefined 'white'
+      color: Colors.white,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: navbarIcon.map((icon) {
           return LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              final iconSize = constraints.maxWidth * 0.2; // Use a fraction of maxWidth
+              final iconSize = screenWidth * 0.07; // Responsive icon size
+              final textSpacing =
+                  screenWidth * 0.015; // Responsive text spacing
 
               return Column(
                 children: [
@@ -27,20 +33,14 @@ class Navbar extends StatelessWidget {
                     height: iconSize,
                     child: SvgPicture.asset(
                       'assets/icons/${icon.icon}.svg',
-                      color: icon.color,
-                      width: iconSize * 0.6,
+                      width: iconSize,
+                      color: dark1,
                     ),
                   ),
                   SizedBox(
-                    height: screenWidth < 600 ? 6 : 8,
+                    height: textSpacing,
                   ),
-                  Text(
-                    icon.title,
-                    style: TextStyle(
-                      fontSize: screenWidth < 600 ? 12.5 : 16, // Define the font size
-                      color: dark2,
-                    ),
-                  )
+                  Text(icon.title, style: semibold12_5)
                 ],
               );
             },

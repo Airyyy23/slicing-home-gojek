@@ -1,57 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gojek/data/icons.dart';
+import 'package:gojek/theme.dart';
 
-import '../data/icons.dart';
-import '../theme.dart';
-
-class Menus extends StatelessWidget {
-  const Menus({Key? key}) : super(key: key);
+class Menu extends StatelessWidget {
+  const Menu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 32),
+      padding: EdgeInsets.only(
+        left: screenWidth * 0.06, // Responsive padding
+        right: screenWidth * 0.06, // Responsive padding
+        top: screenWidth * 0.06, // Responsive padding
+      ),
       child: SizedBox(
-        height: 157,
+        height: screenWidth * 0.44, // Responsive height
         child: GridView.count(
           crossAxisCount: 4,
-          mainAxisSpacing: 8,
-          children: menuIcons.map((icon) {
-            return LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                final iconSize = constraints.maxWidth * 0.5;
-                return Column(
-                  children: [
-                    Container(
-                      width: iconSize,
-                      height: iconSize,
-                      decoration: BoxDecoration(
-                        color:
-                            icon.icon == 'goclub' ? Colors.white : icon.color,
-                        borderRadius: BorderRadius.circular(iconSize / 2),
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/${icon.icon}.svg',
-                        color: icon.icon == 'goclub'
-                            ? icon.color
-                            : icon.icon == 'other'
-                                ? dark2
-                                : Colors.white,
-                        width: iconSize * 0.6, // Sesuaikan sesuai kebutuhan
-                      ),
+          mainAxisSpacing: screenWidth * 0.027, // Responsive spacing
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            ...menuIcons.map(
+              (icon) => Column(
+                children: [
+                  Container(
+                    width: screenWidth * 0.1, // Responsive width
+                    height: screenWidth * 0.1, // Responsive height
+                    decoration: BoxDecoration(
+                      color: icon.icon == 'goclub' ? Colors.white : icon.color,
+                      borderRadius: BorderRadius.circular(
+                          screenWidth * 0.05), // Responsive border radius
                     ),
-                    const SizedBox(
-                      height: 9,
+                    child: SvgPicture.asset(
+                      'assets/icons/${icon.icon}.svg',
+                      color: icon.icon == 'goclub'
+                          ? icon.color
+                          : icon.icon == 'other'
+                              ? dark2
+                              : Colors.white,
+                      width: screenWidth * 0.06, // Responsive width
                     ),
-                    Text(
-                      icon.title,
-                      style: regular12_5.copyWith(color: dark2),
-                    ),
-                  ],
-                );
-              },
-            );
-          }).toList(),
+                  ),
+                  SizedBox(
+                    height: screenWidth * 0.016, // Responsive spacing
+                  ),
+                  Text(
+                    icon.title,
+                    style: regular12_5.copyWith(color: dark2),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

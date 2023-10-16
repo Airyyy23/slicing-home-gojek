@@ -21,7 +21,7 @@ List<GojekIcon> menuIcons = [
 
 List<GojekIcon> navbarIcon = [
   GojekIcon(icon: 'home', title: 'Beranda', color: green2),
-  GojekIcon(icon: 'discount', title: 'Promo', color: dark4),
-  GojekIcon(icon: 'order', title: 'Pesanan', color: dark4),
-  GojekIcon(icon: 'chat', title: 'Chat', color: dark4),
+  GojekIcon(icon: 'discount', title: 'Promo', color: dark1),
+  GojekIcon(icon: 'order', title: 'Pesanan', color: dark1),
+  GojekIcon(icon: 'chat', title: 'Chat', color: dark1),
 ];

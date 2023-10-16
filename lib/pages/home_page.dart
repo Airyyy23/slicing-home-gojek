@@ -15,59 +15,69 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: dark5,
-        toolbarHeight: 71,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-        ),
-        flexibleSpace: ClipRRect(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: white, // Warna latar belakang AppBar
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey, // Warna bayangan
-                  offset: Offset(0, 2), // Posisi bayangan (X, Y)
-                  blurRadius: 4.0, // Radius blur bayangan
-                  spreadRadius: 2.0, // Radius penyebaran bayangan
-                ),
+      appBar: appBarCustom(),
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Gopay(),
+                const Menu(),
+                const GoClub(),
+                const Akses(),
+                const News(),
               ],
             ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Search(),
-            ),
+          ),
+          bottomNavbar()
+        ],
+      ),
+    );
+  }
+
+  PreferredSizeWidget appBarCustom() {
+    return AppBar(
+      backgroundColor: dark5,
+      toolbarHeight: 71,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        ),
+      ),
+      flexibleSpace: ClipRRect(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white, // Background color of the AppBar
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey, // Shadow color
+                offset: Offset(0, 2), // Shadow position (X, Y)
+                blurRadius: 4.0, // Shadow blur radius
+                spreadRadius: 2.0, // Shadow spread radius
+              ),
+            ],
+          ),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Search(),
           ),
         ),
       ),
-      body: Stack(children: [
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Gopay(),
-              const Menus(),
-              const GoClub(),
-              const Akses(),
-              const News(),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Navbar(),
-        )
-      ]),
+    );
+  }
+
+  Widget bottomNavbar() {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: Navbar(),
     );
   }
 }
