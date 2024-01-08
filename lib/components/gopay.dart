@@ -13,47 +13,44 @@ class Gopay extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-        left: screenWidth * 0.03, // Responsive padding
-        right: screenWidth * 0.03, // Responsive padding
-        top: screenWidth * 0.03, // Responsive padding
+        left: screenWidth * 0.03,
+        right: screenWidth * 0.03,
+        top: screenWidth * 0.03,
       ),
       child: Container(
-        height: screenWidth * 0.25, // Responsive height
+        height: screenWidth * 0.25,
         decoration: BoxDecoration(
           color: blue1,
-          borderRadius: BorderRadius.circular(
-              screenWidth * 0.05), // Responsive border radius
+          borderRadius: BorderRadius.circular(screenWidth * 0.05),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(
-                left: screenWidth * 0.015, // Responsive padding
-                right: screenWidth * 0.013, // Responsive padding
+                left: screenWidth * 0.015,
+                right: screenWidth * 0.013,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: screenWidth * 0.005, // Responsive width
-                    height: screenWidth * 0.02, // Responsive height
+                    width: screenWidth * 0.005,
+                    height: screenWidth * 0.02,
                     decoration: BoxDecoration(
                       color: const Color(0xFFBBBBBB),
-                      borderRadius: BorderRadius.circular(
-                          screenWidth * 0.001), // Responsive border radius
+                      borderRadius: BorderRadius.circular(screenWidth * 0.001),
                     ),
                   ),
                   SizedBox(
-                    height: screenWidth * 0.01, // Responsive spacing
+                    height: screenWidth * 0.01,
                   ),
                   Container(
-                    width: screenWidth * 0.005, // Responsive width
-                    height: screenWidth * 0.02, // Responsive height
+                    width: screenWidth * 0.005,
+                    height: screenWidth * 0.02,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                          screenWidth * 0.001), // Responsive border radius
+                      borderRadius: BorderRadius.circular(screenWidth * 0.001),
                     ),
                   ),
                 ],
@@ -61,31 +58,31 @@ class Gopay extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenWidth * 0.013, // Responsive padding
+                left: screenWidth * 0.013,
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: screenWidth * 0.186, // Responsive height
-                    width: screenWidth * 0.347, // Responsive width
+                    height: screenWidth * 0.186,
+                    width: screenWidth * 0.347,
                     padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.006, // Responsive padding
-                      vertical: screenWidth * 0.008, // Responsive padding
+                      horizontal: screenWidth * 0.006,
+                      vertical: screenWidth * 0.008,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                          screenWidth * 0.016), // Responsive border radius
+                      borderRadius: BorderRadius.circular(screenWidth * 0.016),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
                           'assets/images/gopay.png',
-                          height: screenWidth * 0.037, // Responsive height
+                          height: screenWidth * 0.037,
                         ),
                         SizedBox(
-                          height: screenWidth * 0.009, // Responsive spacing
+                          height: screenWidth * 0.009,
                         ),
                         Text(
                           'Rp12.379',
@@ -107,12 +104,12 @@ class Gopay extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: screenWidth * 0.06, // Responsive width
-                        height: screenWidth * 0.06, // Responsive height
+                        width: screenWidth * 0.06,
+                        height: screenWidth * 0.06,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(
-                              screenWidth * 0.02), // Responsive border radius
+                          borderRadius:
+                              BorderRadius.circular(screenWidth * 0.02),
                         ),
                         child: SvgPicture.asset(
                           'assets/icons/${icon.icon}.svg',
@@ -120,7 +117,7 @@ class Gopay extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: screenWidth * 0.014, // Responsive spacing
+                        height: screenWidth * 0.014,
                       ),
                       Text(
                         icon.title,
